@@ -1,0 +1,12 @@
+[submodule "dependencies/ArgParser"]
+	path = dependencies/ArgParser
+	url = https://github.com/FrescolinoGroup/ArgParser.git
+[submodule "dependencies/cppProfiler"]
+	path = dependencies/cppProfiler
+	url = https://github.com/FrescolinoGroup/cppProfiler.git
+[submodule "dependencies/stdSupport"]
+	path = dependencies/stdSupport
+	url = https://github.com/FrescolinoGroup/stdSupport.git
+[submodule "dependencies/pybind11"]
+	path = dependencies/pybind11
+	url = https://github.com/pybind/pybind11.git
