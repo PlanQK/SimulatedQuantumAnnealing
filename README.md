@@ -1,5 +1,5 @@
 # SiQuAn Optimizer
-The SiQuAn library provides a fast implementation for solving spin glasses (z-Operators only) with higher order z-Interactions.
+The SiQuAn library provides a fast implementation for solving spin glasses (z-Operators only) with higher order z-Interactions. The original implementation can be found here: http://doi.org/10.5905/ethz-1007-127
 
 ## Installation
 SiQuAn is written in C++ and requires full C++11 support. It compiles with -std=c++11 on gcc and with -std=c++14 on clang. Compilation requires at least CMake version 3.0. For the documentation, Doxygen is required. The compilation of the Python plugin requires pybind11. For the Python plugin, the version needs to be adjusted in the CMakeListsFolder or using the cmake variable flag: `-DPYBIND11_PYTHON_VERSION`
