@@ -1,0 +1,72 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Copyright 2016-2018, ETH Zurich, ITP, Mario S. Koenz                        #
+#                                                                             #
+# Licensed under the Apache License, Version 2.0 (the "License");             #
+# you may not use this file except in compliance with the License.            #
+# You may obtain a copy of the License at                                     #
+#                                                                             #
+#   http://www.apache.org/licenses/LICENSE-2.0                                #
+#                                                                             #
+# Unless required by applicable law or agreed to in writing, software         #
+# distributed under the License is distributed on an "AS IS" BASIS,           #
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    #
+# See the License for the specific language governing permissions and         #
+# limitations under the License.                                              #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Modification Copyright 2020, d-fine GmbH, Daniel Herr                       #
+#                                                                             #
+# Licensed under the Apache License, Version 2.0 (the "License");             #
+# you may not use this file except in compliance with the License.            #
+# You may obtain a copy of the License at                                     #
+#                                                                             #
+#   http://www.apache.org/licenses/LICENSE-2.0                                #
+#                                                                             #
+# Unless required by applicable law or agreed to in writing, software         #
+# distributed under the License is distributed on an "AS IS" BASIS,           #
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.    #
+# See the License for the specific language governing permissions and         #
+# limitations under the License.                                              #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# general settings
+cmake_minimum_required(VERSION 3.0)
+#find_package(pybind11 REQUIRED)
+
+# compiler: set the compiler BEFORE the project command
+set(CMAKE_C_COMPILER "gcc")
+set(CMAKE_CXX_COMPILER "g++")
+# set(CMAKE_C_COMPILER "clang")
+# set(CMAKE_CXX_COMPILER "clang++")
+
+set(PYBIND11_CPP_STANDARD -std=c++14)
+
+project(siquan
+        VERSION 1.0)
+
+# if additional cmake modules are needed
+list(APPEND CMAKE_MODULE_PATH /usr/include /usr/local/include ~/.local/include)
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "(C|c?)lang")
+    set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -Wno-exit-time-destructors -Wno-global-constructors -Wno-implicit-fallthrough -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-braces -Wno-documentation -Wno-deprecated -Wno-weak-vtables -Wno-switch-enum -Wno-float-conversion -Wno-padded -Wno-shorten-64-to-32 -Wno-sign-conversion -Wno-float-equal -Wno-range-loop-analysis -Wno-covered-switch-default")
+else()
+    set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror")
+endif()
+
+set(CMAKE_EXE_LINKER_FLAGS "-rdynamic") # -pg
+
+# define variables
+
+# include directories: dependencies
+include_directories(dependencies/stdSupport/src/)
+include_directories(dependencies/cppProfiler/src/)
+include_directories(dependencies/ArgParser/src)
+add_subdirectory(dependencies/pybind11)
+# include directories: project
+include_directories(${PROJECT_SOURCE_DIR})
+# add subdirs
+add_subdirectory(doc) # needs doxygen
+add_subdirectory(bruteforce)
+add_subdirectory(sqa_direct)
+add_subdirectory(sqa_direct_evo)
+add_subdirectory(pythonInterface)
