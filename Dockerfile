@@ -19,7 +19,7 @@
 # alpine still needs glibc
 FROM ubuntu
 RUN apt-get update
-RUN apt-get install -y git gcc g++ cmake python3 python3-distutils
+RUN apt-get install -y git gcc g++ cmake
 
 RUN mkdir /siquan; mkdir /siquan/build;
 WORKDIR /siquan

@@ -5,6 +5,7 @@ The SiQuAn library provides a fast implementation for solving spin glasses (z-Op
 SiQuAn is written in C++ and requires full C++11 support. It compiles with -std=c++11 on gcc and with -std=c++14 on clang. Compilation requires at least CMake version 3.0. For the documentation, Doxygen is required. The compilation of the Python plugin requires pybind11. For the Python plugin, the version needs to be adjusted in the CMakeListsFolder or using the cmake variable flag: `-DPYBIND11_PYTHON_VERSION`
 The dependencies for this project can be downloaded with:
 ```
+git submodule init
 git submodule update
 ```
 Then the Optimizer can be compiled out of directory using:
@@ -12,6 +13,7 @@ Then the Optimizer can be compiled out of directory using:
 mkdir build
 cd build
 cmake ..
+make
 ```
 
 Alternatively a docker container can be built from the main directory with:
