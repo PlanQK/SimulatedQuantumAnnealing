@@ -20,7 +20,8 @@ Alternatively a docker container can be built from the main directory with:
 ```
 docker build -t siquan .
 ```
-The Dockerfile does not contain any Python bindings and only runs the solver natively.
+The Dockerfile does can be build with and without python bindings, resulting
+in different sizes. To build without Python, rename: ```Dockerfile_noPython -> Dockerfile```
 
 ## Run the optimizer from within Python
 

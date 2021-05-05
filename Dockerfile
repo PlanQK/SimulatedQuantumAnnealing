@@ -13,12 +13,10 @@
 # See the License for the specific language governing permissions and         #
 # limitations under the License.                                              #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# FROM alpine
-# RUN apk add git gcc g++ cmake
-# alpine still needs glibc
-FROM ubuntu
+FROM python:3-slim
 RUN apt-get update
+ENV TZ=Europe/
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y git gcc g++ cmake
 
 RUN mkdir /siquan; mkdir /siquan/build;
@@ -30,7 +28,7 @@ COPY doc /siquan/doc
 COPY siquan /siquan/siquan
 COPY sqa_direct /siquan/sqa_direct
 COPY sqa_direct_evo /siquan/sqa_direct_evo
-COPY CMakeLists_noPython.txt /siquan/CMakeLists.txt
+COPY CMakeLists.txt /siquan/CMakeLists.txt
 COPY COPYING LICENSE README.md /siquan/
 
 RUN cd /siquan/build/ && cmake .. && make sqa_direct
