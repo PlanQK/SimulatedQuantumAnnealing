@@ -28,8 +28,8 @@ in different sizes. To build without Python, rename: ```Dockerfile_noPython -> D
 To enable the python interface, the PYTHONPATH needs to contain the compiled python interface file, eg. `build/pythonInterface`.
 Then the optmizer can be imported and used:
 ```python
-import SiQuAn
-dtsqa = SiQuAn.DTSQA()
+import siquan
+dtsqa = siquan.DTSQA()
 # possibility to set various parameters
 dtsqa.setHSchedule("[10,iF,0]")
 

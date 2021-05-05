@@ -160,7 +160,7 @@ private:
     fsc::ArgParserTpl<std::string> ap;
 };
 
-PYBIND11_MODULE(SiQuAn, m)
+PYBIND11_MODULE(siquan, m)
 {
     py::class_<Interface>(m, "DTSQA")
         .def(py::init())

@@ -14,4 +14,4 @@
 # limitations under the License.                                              #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-pybind11_add_module(SiQuAn SiQuAn.cpp)
+pybind11_add_module(siquan siquan.cpp)
