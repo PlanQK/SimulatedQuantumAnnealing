@@ -31,7 +31,10 @@ COPY sqa_direct_evo /siquan/sqa_direct_evo
 COPY CMakeLists.txt /siquan/CMakeLists.txt
 COPY COPYING LICENSE README.md /siquan/
 
-RUN cd /siquan/build/ && cmake .. && make sqa_direct && make siquan
+RUN cd /siquan/build/ && cmake .. && make sqa_direct && make sqa_direct_evo && make siquan
 ENV PYTHONPATH "${PYTHONPATH}:/siquan/build/pythonInterface"
-
+RUN cd /bin && ln /siquan/build/sqa_direct/sqa_direct
+RUN cd /bin && ln /siquan/build/sqa_direct_evo/sqa_direct_evo
 RUN apt-get autoremove -y git gcc g++ cmake
+
+ENTRYPOINT [ "sqa_direct", "--file", "/siquan/input/problem.txt"]
