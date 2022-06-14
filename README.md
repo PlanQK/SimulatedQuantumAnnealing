@@ -66,3 +66,6 @@ The schedule can be set differently (p linearly evolves from 0 to 1):
 
 ## Documentation
 More information about the code can be seen in the Doxygen documentation.
+
+## Contributing
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
